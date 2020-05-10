@@ -44,6 +44,34 @@ const ll mod=1e9L+7;
 #pragma GCC target("popcnt")
 
 
+int whichbit(ll n,int pos){
+    if(n>>pos & 1){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+
+ll turnon(ll n,ll pos){
+    return ((1<<pos) | n);
+}
+
+
+ll turnoff(ll n,ll pos){
+    return ( ~(1<<pos) & n);
+}
+
+
+void showbits(ll n,ll size){
+    for(ll i=size;i>=0;i--){
+        cout<<whichbit(n,i);
+    }
+}
+
+
+
+
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -53,11 +81,10 @@ signed main() {
     ll test;
     sl(test);
     while(test--){
-        ll n,v;
+        ll n,pos;
         sl(n);
-        sl(v);
-        cout<<n+v;br;
-        run_time;
+        sl(pos);
+        cout<<turnoff(n,pos);br;
     }
 
     
